@@ -1,0 +1,32 @@
+@startuml serviceco_value_chain
+
+title ServiceCo - Level 0 Value Chain
+
+skinparam rectangle {
+  BackgroundColor white
+  BorderColor black
+}
+
+rectangle "Demand Generation\n& Marketing" as Marketing
+rectangle "Sales & Client\nAcquisition" as Sales
+rectangle "Recruitment &\nTalent Pool" as Recruitment
+rectangle "Matching &\nPlacement" as Matching
+rectangle "Service Delivery\n& Operations" as Operations
+rectangle "Billing &\nCollections" as Billing
+rectangle "Finance &\nControlling" as Finance
+rectangle "HR & People\nManagement" as HR
+rectangle "Data & Analytics\nContinuous Improvement" as Analytics
+
+Marketing --> Sales
+Sales --> Recruitment
+Recruitment --> Matching
+Matching --> Operations
+Operations --> Billing
+Billing --> Finance
+
+Operations --> HR
+Operations --> Analytics
+Finance --> Analytics
+HR --> Analytics
+
+@enduml
