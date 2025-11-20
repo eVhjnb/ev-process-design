@@ -1,0 +1,29 @@
+@startuml domain_finance_overview
+
+title Domain - Finance (ServiceCo)
+
+package "Finance Domain" {
+  rectangle "Client Invoicing" as Invoicing
+  rectangle "Collections & AR" as Collections
+  rectangle "Vendor Payments\n(AP)" as AP
+  rectangle "Payroll & Contractor\nPayments" as Payroll
+  rectangle "Budgeting & Forecasting" as Budgeting
+  rectangle "Financial Reporting\n& KPIs" as FinReporting
+}
+
+rectangle "Sales & Contracts" as Sales
+rectangle "Service Delivery" as Delivery
+rectangle "Data Warehouse\n& Analytics" as DWH
+
+Sales --> Invoicing : contract terms\n& pricing
+Delivery --> Invoicing : delivered volume\n& usage
+Invoicing --> Collections
+Collections --> FinReporting
+
+AP --> FinReporting
+Payroll --> FinReporting
+Budgeting --> FinReporting
+
+FinReporting --> DWH
+
+@enduml
