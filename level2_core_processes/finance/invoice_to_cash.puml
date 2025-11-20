@@ -1,0 +1,29 @@
+@startuml invoice_to_cash
+
+title Finance L2 - Invoice-to-Cash (ServiceCo)
+
+start
+
+:Receive service usage / time reports\nfrom Service Delivery;
+:Validate completeness & exceptions;
+if (Data valid?) then (yes)
+  :Generate invoice draft;
+  :Apply pricing rules & taxes;
+  :Finance review & approval;
+  :Issue invoice to client;
+  :Record AR entry in accounting;
+  :Monitor due date & reminders;
+  if (Payment received?) then (yes)
+    :Match payment to invoice;
+    :Reconcile differences (if any);
+    :Update AR aging & KPIs;
+  else (no)
+    :Escalate to collections / account manager;
+  endif
+else (no)
+  :Return to Service Delivery\nfor correction;
+endif
+
+stop
+
+@enduml
